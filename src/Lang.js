@@ -112,7 +112,7 @@ class Lang {
             lessAmount:"FPRS余额不足以支付本次交易.",
             lessTicket:"当前可用的HAPPYK不足，请先充值HAPPYK",
             lessAsnow:"钱包账户中可用的HAPPYK不足，请先兑换HAPPYK",
-            minInvest:"最小投资金额为100FPRS.",
+            minInvest:"最小投资金额为 1000 FPRS.",
             tx:"交易提交成功, 等待区块打包交易, 交易哈希: ",
             copySuccess:"拷贝成功! ",
 
@@ -203,7 +203,7 @@ class Lang {
                     referId:"Refer ID",
                     ticket:"Tickets",
                     amount:"Invet Amount",
-                    amountTips:"At least invest 100 FPRS",
+                    amountTips:"At least invest 1000 FPRS",
                     availableFPRS:"Available Blance",
                     availableAsnow:"Available HAPPYK",
                     availableExchange:"Max Exchange",
