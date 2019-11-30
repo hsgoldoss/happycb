@@ -109,8 +109,8 @@ const BuyAsnowForm = Form.create({name: 'form_in_modal1'})(
                                             placeholder={Lang[that.props.lang].account.modal.buyAsnow.amountPlace}
                                             autoComplete="off"/>)}
                         </Form.Item>
-                        <p>Rate: {<span style={{color: '#1DA57A'}}>1 HAPPYCB = {rate} FPRS</span>} , Exchange: {<strong
-                            style={{color: 'rgb(216, 0, 38)'}}>{new BigNumber(this.state.asnow).toFixed(6)}</strong>} HAPPYCB</p>
+                        <p>Rate: {<span style={{color: '#1DA57A'}}>1 HAPPYK = {rate} FPRS</span>} , Exchange: {<strong
+                            style={{color: 'rgb(216, 0, 38)'}}>{new BigNumber(this.state.asnow).toFixed(6)}</strong>} HAPPYK</p>
                     </Form>
                 </Modal>
             );
@@ -220,7 +220,7 @@ const InvestForm = Form.create({name: 'form_in_modal2'})(
                                             style={{width: '30%'}} onChange={(v) => {
                                 that.setState({ticketSero: v});
                                 that.staticTotal();
-                            }} allowClear placeholder="0.000000" autoComplete="off"/>)} FPRS (1 HAPPYCB
+                            }} allowClear placeholder="0.000000" autoComplete="off"/>)} FPRS (1 HAPPYK
                             = {rate} FPRS)<br/>
                             {Lang[that.props.lang].account.modal.invest.availableAsnow}: {<span
                             style={{color: '#1DA57A'}}>{asnow ? asnow : "0"}</span>}
@@ -233,7 +233,7 @@ const InvestForm = Form.create({name: 'form_in_modal2'})(
 
                         <p>{Lang[that.props.lang].account.modal.invest.total} : <strong
                             style={{color: 'rgb(216, 0, 38)'}}>{this.state.total}</strong> FPRS, <strong
-                            style={{color: 'rgb(216, 0, 38)'}}>{this.state.ticketAsnow}</strong> HAPPYCB</p>
+                            style={{color: 'rgb(216, 0, 38)'}}>{this.state.ticketAsnow}</strong> HAPPYK</p>
                     </Form>
                 </Modal>
             );
@@ -415,7 +415,7 @@ class ContentPage extends Component {
         let that = this;
         ajax.postSeroRpc("sero_getBalance", [contractAddress, "latest"], function (res) {
             let sero = new BigNumber(res.result.tkn.FPRS ? res.result.tkn.FPRS : "0", 16).dividedBy(decimal).toFixed(6);
-            let asnow = new BigNumber(res.result.tkn.HAPPYCB ? res.result.tkn.HAPPYCB : "0", 16).dividedBy(decimal).toFixed(6);
+            let asnow = new BigNumber(res.result.tkn.HAPPYK ? res.result.tkn.HAPPYK : "0", 16).dividedBy(decimal).toFixed(6);
             that.setState({
                 ct_balance_sero: sero,
                 ct_balance_asnow: asnow,
@@ -446,7 +446,7 @@ class ContentPage extends Component {
             strMap.set(currency, balanceObj[currency]);
             if (currency === 'FPRS') {
                 balanceSero = new BigNumber(balanceObj[currency]).dividedBy(decimal).toFixed(6);
-            } else if (currency === 'HAPPYCB') {
+            } else if (currency === 'HAPPYK') {
                 balanceAsnow = new BigNumber(balanceObj[currency]).dividedBy(decimal).toFixed(6);
             }
         }
@@ -800,7 +800,7 @@ class ContentPage extends Component {
                 message.warn(Lang[that.state.lang].toast.lessAsnow);
             } else {
                 try {
-                    this.executeMethod("paymentAsnow", [], new BigNumber(amount).multipliedBy(decimal).toString(16), "HAPPYCB", '', function (res) {
+                    this.executeMethod("paymentAsnow", [], new BigNumber(amount).multipliedBy(decimal).toString(16), "HAPPYK", '', function (res) {
                         if (res) {
                             form.resetFields();
                             that.setState({showBuyTicket: false});
@@ -1186,7 +1186,7 @@ class App extends Component {
                 <Layout className="layout">
                     <Header className="header">
                         <div className="logo"><img src={logo}/></div>
-                        <h1>HAPPYCB</h1>
+                        <h1>HAPPYK</h1>
                         <div className="change-locale">
                             <Radio.Group value={locale} onChange={this.changeLocale}>
                                 <Radio.Button key="en" value={enUS}>
