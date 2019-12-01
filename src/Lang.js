@@ -76,7 +76,7 @@ class Lang {
                     title:"投资",
                     referId:"推荐人编号",
                     amount:"投资金额",
-                    amountTips:"100 FPRS起投",
+                    amountTips:"1000 FPRS起投",
                     ticket:"门票",
                     availableFPRS:"可用的余额",
                     availableAsnow:"可用的HAPPYK",
@@ -225,7 +225,7 @@ class Lang {
         toast:{
             lessAmount:"The balance is not enough to pay for this transaction.",
             lessTicket:"There are not enough tickets, please depost the asnow first.",
-            minInvest:"Invest Amount at least 100 FPRS.",
+            minInvest:"Invest Amount at least 1000 FPRS.",
             lessAsnow:"Insufficient HAPPYK available in the wallet account, please exchange HAPPYK first",
             tx:"The transaction was submitted successfully, waiting for the block to be packaged, and the transaction hash: ",
             copySuccess:"Copy to clipboard successfully! ",
